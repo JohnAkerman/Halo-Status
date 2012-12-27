@@ -12,7 +12,7 @@
 		$apiType = $_REQUEST['apiType'];
 
 		$buffer = " ";
-		$query = new QueryServer($buffer, trim($ip), (int)$port, 5,1);
+		$query = new QueryServer($buffer, trim($ip), (int)$port, 1,1);
 
 		if (($response = $query->runQuery()) !== false) {
 		    $response['hostname'] = str_replace("", "", trim($response['hostname']));
@@ -53,6 +53,7 @@
 			    	break;
 			   default:
 			    	echo json_encode(array(
+						'all' => 'Returns all of the server information',
 						'server_name' => 'Returns the server name',
 						'server_info' => 'Returns the server name',
 						'teamscore' => 'Returns what the current score is for the teams',
