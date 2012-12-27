@@ -14,18 +14,26 @@
 
 		if (($response = $query->runQuery()) !== false) {
 		    $response['hostname'] = str_replace("", "", trim($response['hostname']));
-		    
-		    if ($apiType == "players") {
-			    echo json_encode(array(
-			    	"players" => $response['players']
-			    ));		    	
-		    } else
-		    {
-		    	 echo json_encode(array(
+
+		    switch ($apiType) {
+		    	case "players":
+		    		 echo json_encode(array(
+				    	"players" => $response['players']
+				    ));		
+		    		break;
+
+		    	case "server_name":
+			    	echo json_encode(array(
+						"server_name" => $response['hostname']
+					));	
+			    	break;
+		    	default:
+		    		echo json_encode(array(
 			    	"response" => $response
 			    ));	
+		    		break;
 		    }
-
+		 
 		} else {
 		    echo json_encode(array(
 		        "error" => $query->getError(),
