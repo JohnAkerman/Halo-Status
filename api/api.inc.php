@@ -15,7 +15,8 @@
 		
 			$fields = array(
 				'ip' => urlencode($_GET['ip']),
-				'port' => urlencode($_GET['port'])
+				'port' => urlencode($_GET['port']),
+				'apiType' => urlencode($_GET['apiType'])
 			);
 
 			return $fields;

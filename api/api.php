@@ -7,8 +7,7 @@
 	if (isset($_REQUEST['ip']) && isset($_REQUEST['port']) && isset($_REQUEST['apiType'])) {
 		$ip = $_REQUEST['ip'];
 		$port = $_REQUEST['port'];
-		$apiType =$_REQUEST['apiType'];
-
+		$apiType = $_REQUEST['apiType'];
 
 		$buffer = " ";
 		$query = new QueryServer($buffer, trim($ip), (int)$port, 1,1);
