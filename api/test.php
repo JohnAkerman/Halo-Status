@@ -1,14 +1,17 @@
-<?php include('api.inc.php'); ?>
+<?php
+	include('api.inc.php'); 
 
-<!DOCTYPE html>
-<html lang="en-US">
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		<?php
-			print_r(HaloStatus::getPlayers("46.249.47.12", "2332"));
-		?>
-	</body>
-</html>
+	$request =  str_replace("/halo-status/api/", "", $_SERVER['REQUEST_URI']);
+	$param = explode("/", $request);
+
+	$fields = array(
+        'ip' => urlencode($param[0]),
+        'port' => urlencode($param[1]),
+        'apiType' => urlencode($param[2])
+    );
+	
+	echo "<pre>";
+	print_r(HaloStatus::getRequest($fields));
+	echo "</pre>";
+
+?>

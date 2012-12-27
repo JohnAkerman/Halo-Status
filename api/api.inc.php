@@ -5,21 +5,15 @@
 		const URL = "http://localhost/halo-status/api/api.php";
 
 		public static function getPlayers($ip, $port) {
-			$postData = self::getPost();
-			$data = self::get_data(self::URL, $postData);
+			$data = self::get_data(self::URL, $param);
 			$parsed = json_decode($data, true);
 			print_r($parsed);
 		}
 
-		public static function getPost() {
-		
-			$fields = array(
-				'ip' => urlencode($_GET['ip']),
-				'port' => urlencode($_GET['port']),
-				'apiType' => urlencode($_GET['apiType'])
-			);
-
-			return $fields;
+		public static function getRequest($param) {
+			$data = self::get_data(self::URL, $param);
+			$parsed = json_decode($data, true);
+			print_r($parsed);
 		}
 
 		public static function get_data($url, $fields) {
