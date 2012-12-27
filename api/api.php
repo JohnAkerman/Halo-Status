@@ -3,6 +3,8 @@
 	require_once '../script/QueryServer.class.php';
 	require_once '../script/FlagDecoder.class.php';
 
+	header('Content-type: application/json');
+
 
 	if (isset($_REQUEST['ip']) && isset($_REQUEST['port']) && isset($_REQUEST['apiType'])) {
 		$ip = $_REQUEST['ip'];
@@ -10,11 +12,10 @@
 		$apiType = $_REQUEST['apiType'];
 
 		$buffer = " ";
-		$query = new QueryServer($buffer, trim($ip), (int)$port, 1,1);
+		$query = new QueryServer($buffer, trim($ip), (int)$port, 5,1);
 
 		if (($response = $query->runQuery()) !== false) {
 		    $response['hostname'] = str_replace("", "", trim($response['hostname']));
-
 		    switch ($apiType) {
 		    	case "all":
 		    		echo json_encode(array(
