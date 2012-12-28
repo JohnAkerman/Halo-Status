@@ -25,13 +25,18 @@
 			print_r($parsed);
 		}
 
-		// Get ALL information
-			public static function getAll($ip, $port) {
+		public static function getAll($ip, $port) {
 			$data = self::get_data(self::URL, array('ip'=>$ip, 'port' => $port, 'apiType' => 'all'));
 			$parsed = json_decode($data, true);
 			print_r($parsed);
 		}
 
+		// Get Request from Index.php
+		public static function getRequest($param) {
+			$data = self::get_data(self::URL, $param);
+			$parsed = json_decode($data, true);
+			print_r($parsed);
+		}
 
 		private static function get_data($url, $fields) {
 			$ch = curl_init();
@@ -43,7 +48,5 @@
 			curl_close($ch);
 			return $data;
 		}
-
-		  //   	case "server_name":
 	}
 ?>
