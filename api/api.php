@@ -12,7 +12,7 @@
 		$apiType = $_REQUEST['apiType'];
 
 		$buffer = " ";
-		$query = new QueryServer($buffer, trim($ip), (int)$port, 1,1);
+		$query = new QueryServer($buffer, trim($ip), (int)$port);
 
 		if (($response = $query->runQuery()) !== false) {
 		    $response['hostname'] = str_replace("", "", trim($response['hostname']));

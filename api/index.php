@@ -1,7 +1,8 @@
 <?php
 	include('api.inc.php'); 
 
-	$request =  str_replace("/halo-status/api/", "", $_SERVER['REQUEST_URI']);
+	//$request =  str_replace("/halo-status/api/", "", $_SERVER['REQUEST_URI']);
+	$request =  str_replace("/api/", "", $_SERVER['REQUEST_URI']);
 	$param = explode("/", trim($request));
 
 	if (count($param) < 3) {

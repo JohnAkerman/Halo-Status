@@ -2,8 +2,10 @@
 
 	class HaloStatus {
 
+		/* API Location */
 		//const URL = "http://limited-development.net/halo-status/api/api.php";
-		const URL = "http://localhost/halo-status/api/api.php";
+		//const URL = "http://localhost/halo-status/api/api.php";
+		const URL = "http://limited.osvex.com/api/api.php";
 
 		public static function getPlayers($ip, $port) {
 			$data = self::get_data(self::URL, array('ip'=>$ip, 'port' => $port, 'apiType' => 'players'));
@@ -24,11 +26,12 @@
 		}
 
 		// Get ALL information
-		public static function getRequest($param) {
-			$data = self::get_data(self::URL, $param);
+			public static function getAll($ip, $port) {
+			$data = self::get_data(self::URL, array('ip'=>$ip, 'port' => $port, 'apiType' => 'all'));
 			$parsed = json_decode($data, true);
 			print_r($parsed);
 		}
+
 
 		private static function get_data($url, $fields) {
 			$ch = curl_init();

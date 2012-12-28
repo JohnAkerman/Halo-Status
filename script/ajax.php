@@ -30,7 +30,7 @@ if (!isset($found)) {
 }*/
 
 $buffer = " ";
-$query = new QueryServer($buffer, trim($_POST['ip']), (int) $_POST['port'], 5,1);
+$query = new QueryServer($buffer, trim($_POST['ip']), (int) $_POST['port']);
 if (($response = $query->runQuery()) !== false) {
     $response['hostname'] = str_replace("", "", trim($response['hostname']));
     echo json_encode($response);
