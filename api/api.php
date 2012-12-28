@@ -57,7 +57,7 @@
 						'server_name' => 'Returns the server name',
 						'server_info' => 'Returns the server name',
 						'teamscore' => 'Returns what the current score is for the teams',
-						'player' => 'Returns an array of players with information such as what team, their ping and score.'
+						'players' => 'Returns an array of players with information such as what team, their ping and score.'
 					));	
 			    	break;
 		    }
